@@ -1,0 +1,68 @@
+---
+sidebar_position: 1
+---
+
+# Intro
+
+microcms-richedit-processer はすぐに始められます。
+
+## Getting Started
+
+あらかじめ、microCMS の API 作成は完了させ、データの取得ができる状態にしてください。
+
+[こちら](https://document.microcms.io/)の公式ドキュメントが参考になります。
+
+### Install
+
+ライブラリをインストールします。
+
+```bash
+npm i microcms-richedit-processer
+```
+
+```bash
+yarn add microcms-richedit-processer
+```
+
+### Usage
+
+#### Next.js
+
+```tsx title="pages/**/index.tsx"
+import { GetStaticProps, NextPage } from 'next'
+
+import { createTableOfContents, processer } from 'microcms-richedit-processer'
+
+type Props = {
+  body: string
+  toc: {
+    id: string
+    text: string
+    name: string
+  }[]
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const { contents } = await fetch(
+    'https://{サービスID}.microcms.io/api/v1/{エンドポイント}',
+    {
+      headers: {
+        'X-API-KEY': '{APIキー}',
+      },
+    }
+  ).then((res) => res.json())
+
+  // contents.bodyにHTMLデータが取得できる想定です。
+
+  return {
+    props: {
+      body: await processer(contents.body),
+      // オプションを渡す場合
+      // body: processer(contents.body, {}),
+      toc: createTableOfContents(contents.body),
+      // オプションを渡す場合
+      // toc: createTableOfContents(contents.body, {}),
+    },
+  }
+}
+```

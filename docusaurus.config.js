@@ -13,6 +13,10 @@ module.exports = {
   favicon: 'img/favicon.svg',
   organizationName: 'dc7290',
   projectName: 'microcms-richedit-processer',
+  i18n: {
+    defaultLocale: 'ja',
+    locales: ['ja'],
+  },
 
   presets: [
     [
@@ -40,6 +44,7 @@ module.exports = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
+        title: '',
         logo: {
           alt: 'microcms-richedit-processer logo',
           src: 'img/logo.svg',
@@ -70,25 +75,21 @@ module.exports = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Document',
                 to: '/docs/intro',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'SNS',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Github',
+                href: 'https://github.com/dc7290',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://twitter.com/d_suke_09',
               },
             ],
           },
@@ -98,6 +99,7 @@ module.exports = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['powershell'],
       },
     }),
 }

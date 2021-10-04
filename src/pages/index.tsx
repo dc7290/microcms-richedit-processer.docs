@@ -4,9 +4,9 @@ import Layout from '@theme/Layout'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import styles from './index.module.css'
-import HomepageFeatures from '../components/HomepageFeatures'
+import { HomepageFeatures } from '../components/HomepageFeatures'
 
-function HomepageHeader() {
+const HomepageHeader = () => {
   const { siteConfig } = useDocusaurusContext()
 
   return (
@@ -27,7 +27,7 @@ function HomepageHeader() {
   )
 }
 
-export default function Home() {
+const Home = () => {
   const { siteConfig } = useDocusaurusContext()
 
   return (
@@ -42,3 +42,5 @@ export default function Home() {
     </Layout>
   )
 }
+
+export default Home

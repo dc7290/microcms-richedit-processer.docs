@@ -1,5 +1,5 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+const lightCodeTheme = require('prism-react-renderer/themes/vsLight')
+const darkCodeTheme = require('prism-react-renderer/themes/vsDark')
 
 // With JSDoc @type annotations, IDEs can provide config autocompletion
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
@@ -24,7 +24,6 @@ module.exports = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/dc7290/microcms-richedit-processer.docs/edit/main/docs/',
         },
@@ -38,6 +37,7 @@ module.exports = {
         },
       }),
     ],
+    '@docusaurus/theme-live-codeblock',
   ],
 
   themeConfig:

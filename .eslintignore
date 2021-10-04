@@ -1,0 +1,6 @@
+/.docusaurus
+/build
+/static
+
+./babel.config.js
+./docusaurus.config.js

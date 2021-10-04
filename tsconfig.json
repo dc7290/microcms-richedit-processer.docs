@@ -2,6 +2,9 @@
   "extends": "@tsconfig/docusaurus/tsconfig.json",
   "include": ["src/"],
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "paths": {
+      "@theme/*": ["@docusaurus/theme-classic/lib/*"]
+    }
   }
 }

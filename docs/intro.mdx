@@ -20,6 +20,8 @@ microcms-richedit-processer はすぐに始められます。
 npm i microcms-richedit-processer
 ```
 
+or
+
 ```bash
 yarn add microcms-richedit-processer
 ```
@@ -28,8 +30,45 @@ yarn add microcms-richedit-processer
 
 #### Next.js
 
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+<Tabs>
+  <TabItem value="javascript" label="JavaScript" default>
+
+```tsx title="pages/**/index.jsx"
+import { createTableOfContents, processer } from 'microcms-richedit-processer'
+
+export const getStaticProps = async () => {
+  const { contents } = await fetch(
+    'https://{サービスID}.microcms.io/api/v1/{エンドポイント}',
+    {
+      headers: {
+        'X-API-KEY': '{APIキー}',
+      },
+    }
+  ).then((res) => res.json())
+
+  // contents.bodyにHTMLデータが取得できる想定です。
+
+  return {
+    props: {
+      body: await processer(contents.body),
+      // オプションを渡す場合
+      // body: processer(contents.body, {}),
+      toc: createTableOfContents(contents.body),
+      // オプションを渡す場合
+      // toc: createTableOfContents(contents.body, {}),
+    },
+  }
+}
+```
+
+  </TabItem>
+  <TabItem value="typescript" label="TypeScript">
+
 ```tsx title="pages/**/index.tsx"
-import { GetStaticProps, NextPage } from 'next'
+import { GetStaticProps } from 'next'
 
 import { createTableOfContents, processer } from 'microcms-richedit-processer'
 
@@ -66,3 +105,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   }
 }
 ```
+
+  </TabItem>
+</Tabs>

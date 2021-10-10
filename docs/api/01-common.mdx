@@ -1,0 +1,64 @@
+---
+---
+
+# Common APIs
+
+すべての要素に共通で存在する API の紹介
+
+ここでは例として`img`タグを使用します。
+
+## クラス名の追加
+
+```jsx
+const content = '<img src="https://sample.com/image.png" alt />'
+const result = processer(content, {
+  img: { addClassName: ['class01', 'class02'] },
+})
+
+console.log(result)
+```
+
+```html
+<img
+  alt
+  width="画像の横幅が自動で入ります"
+  height="画像の縦幅が自動で入ります"
+  class="class01 class02 lazyload"
+  data-src="https://sample.com/image.png?auto=format"
+  data-srcset="https://sample.com/image.png?auto=format&w=640 640w, https://sample.com/image.png?auto=format&w=750 750w, https://sample.com/image.png?auto=format&w=828 828w, https://sample.com/image.png?auto=format&w=1080 1080w, https://sample.com/image.png?auto=format&w=1200 1200w, https://sample.com/image.png?auto=format&w=1920 1920w, https://sample.com/image.png?auto=format&w=2048 2048w, https://sample.com/image.png?auto=format&w=3840 3840w"
+  data-sizes="100vw"
+/>
+```
+
+:::note
+わかりやすいように改行していますが実際は文字列で１行となります。
+:::
+
+## 任意の属性値の追加
+
+```jsx
+const content = '<img src="https://sample.com/image.png" alt />'
+const result = processer(content, {
+  img: { addAttributes: { 'aria-label': 'sampleLabel', 'data-id': 'dataid' } },
+})
+
+console.log(result)
+```
+
+```html
+<img
+  alt
+  aria-label="sampleLabel"
+  data-id="dataid"
+  width="画像の横幅が自動で入ります"
+  height="画像の縦幅が自動で入ります"
+  class="lazyload"
+  data-src="https://sample.com/image.png?auto=format"
+  data-srcset="https://sample.com/image.png?auto=format&w=640 640w, https://sample.com/image.png?auto=format&w=750 750w, https://sample.com/image.png?auto=format&w=828 828w, https://sample.com/image.png?auto=format&w=1080 1080w, https://sample.com/image.png?auto=format&w=1200 1200w, https://sample.com/image.png?auto=format&w=1920 1920w, https://sample.com/image.png?auto=format&w=2048 2048w, https://sample.com/image.png?auto=format&w=3840 3840w"
+  data-sizes="100vw"
+/>
+```
+
+:::note
+わかりやすいように改行していますが実際は文字列で１行となります。
+:::

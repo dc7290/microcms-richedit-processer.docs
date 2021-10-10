@@ -18,6 +18,8 @@ module.exports = {
     locales: ['ja'],
   },
 
+  plugins: ['@docusaurus/theme-live-codeblock'],
+
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -37,7 +39,6 @@ module.exports = {
         },
       }),
     ],
-    '@docusaurus/theme-live-codeblock',
   ],
 
   themeConfig:
@@ -100,6 +101,9 @@ module.exports = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ['powershell'],
+      },
+      liveCodeBlock: {
+        playgroundPosition: 'bottom',
       },
     }),
 }
